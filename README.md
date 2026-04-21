@@ -74,4 +74,4 @@ Este proyecto demuestra que la **Industria 4.0** no trata solo de importar libre
 **Próximos pasos:** Implementar análisis de vibraciones mediante Series Temporales (LSTMs) para capturar la firma acústica del desgaste de herramienta (TWF) que los sensores de baja frecuencia omiten.
 
 ---
-**Ing. [Tu Nombre]** *Mecánico de formación, Científico de Datos por pasión.*
+**Ing. Julen Neila Garcia** *Mecánico y Científico de Datos de formación y por pasión.*

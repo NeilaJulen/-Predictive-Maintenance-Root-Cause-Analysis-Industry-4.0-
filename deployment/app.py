@@ -18,9 +18,9 @@ st.title("🏭 Sistema de Mantenimiento Predictivo 4.0")
 
 # 2. CARGAR ARTEFACTOS
 # Asegúrate de que estos archivos estén en la misma carpeta que app.py
-model = joblib.load('modelo_produccion.pkl')
-scaler = joblib.load('scaler_industrial.pkl')
-encoder = joblib.load('encoder_tipo.pkl')
+model = joblib.load('deployment/modelo_produccion.pkl')
+scaler = joblib.load('deployment/scaler_industrial.pkl')
+encoder = joblib.load('deployment/encoder_tipo.pkl')
 
 # --- SIDEBAR: Entradas de Sensores ---
 st.sidebar.header("📥 Telemetría en Tiempo Real")

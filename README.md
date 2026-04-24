@@ -32,7 +32,16 @@ El conocimiento del dominio es el "Superpoder" de este modelo. En lugar de usar 
 
 ---
 
-## 🤖 3. Arquitectura del Modelo y Diagnóstico
+## 📊 3. Análisis Exploratorio (EDA)
+Para entender el comportamiento de la maquinaria, realizamos un análisis profundo de las variables:
+
+![Mapa de Correlación](img/eda_correlation.png)
+*Figura 1: Relación entre variables de sensores y tipos de fallo.*
+
+![Análisis Físico](img/eda_physics_analysis.png)
+*Figura 2: Identificación de zonas críticas de operación.*
+
+## 🤖 4. Arquitectura del Modelo y Diagnóstico
 
 Implementamos un pipeline de clasificación multiclase capaz de identificar la **causa raíz** del fallo:
 
@@ -47,7 +56,7 @@ Durante el desarrollo, aplicamos **SMOTE** para balancear las clases. Aunque el 
 
 ---
 
-## 📊 4. Comparativa de Resultados
+## 📊 5. Comparativa de Resultados
 
 | Modelo | Recall (Detección de Fallos) | Precision (Fiabilidad Alerta) | F1-Score |
 | :--- | :---: | :---: | :---: |
@@ -57,7 +66,7 @@ Durante el desarrollo, aplicamos **SMOTE** para balancear las clases. Aunque el 
 
 ---
 
-## 💻 5. Despliegue: Dashboard Interactivo en Streamlit
+## 💻 6. Despliegue: Dashboard Interactivo en Streamlit
 
 Para que el modelo sea accionable, se desarrolló una aplicación web interactiva. Los técnicos pueden ajustar los sliders de telemetría y obtener un **diagnóstico en tiempo real** con la probabilidad de cada tipo de fallo.
 
@@ -75,7 +84,7 @@ Este proyecto demuestra que la **Industria 4.0** no trata solo de importar libre
 
 ---
 
-### 👤 Sobre el Autor
+## 👤 Sobre el Autor
 
 **Julen Neila Garcia** *Ing. Mecánico y Científico de Datos de formación*; y apasionado de resolver desafíos complejos en el sector industrial mediante Inteligencia Artificial. Especializado en el diseño de sistemas de mantenimiento predictivo y optimización de procesos, mediante soluciones de ML y DL, que impulsan la competitividad en entornos de fabricación inteligente.. 
 

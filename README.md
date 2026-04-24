@@ -1,3 +1,8 @@
+### Licencia del Proyecto
+Este proyecto está bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)]
+
 # 🏭 Industrial Predictive Maintenance & Root Cause Analysis
 Industrial Predictive Maintenance (AI4I 2020) merging Mechanical Eng. & Data Science. XGBoost model optimized for ROI (€7.8k savings). Features physics-based engineering (Mechanical Effort), multiclass root cause analysis (HDF, OSF, PWF, TWF), and Streamlit deployment. Focused on business impact, reliability, and operational cost reduction.
 
@@ -98,7 +103,4 @@ El dataset utilizado es el **AI4I 2020 Predictive Maintenance Dataset**, disponi
 **Cita oficial:**
 > Matzka, S. (2020). AI4I 2020 Predictive Maintenance Dataset. UCI Machine Learning Repository. https://doi.org/10.24432/C5G596.
 
-### Licencia del Proyecto
-Este proyecto está bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
-
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+(https://creativecommons.org/licenses/by-nc-sa/4.0/)

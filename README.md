@@ -100,3 +100,5 @@ El dataset utilizado es el **AI4I 2020 Predictive Maintenance Dataset**, disponi
 
 ### Licencia del Proyecto
 Este proyecto está bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)

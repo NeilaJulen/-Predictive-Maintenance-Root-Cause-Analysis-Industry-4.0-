@@ -12,11 +12,12 @@ import pandas as pd
 import joblib
 import numpy as np
 
-# Configuración y Estética
+# 1. CONFIGURACIÓN Y ESTÉTICA
 st.set_page_config(page_title="Industrial Health Monitor", layout="wide")
 st.title("🏭 Sistema de Mantenimiento Predictivo 4.0")
 
-# Cargar modelos
+# 2. CARGAR ARTEFACTOS
+# Asegúrate de que estos archivos estén en la misma carpeta que app.py
 model = joblib.load('modelo_produccion.pkl')
 scaler = joblib.load('scaler_industrial.pkl')
 encoder = joblib.load('encoder_tipo.pkl')
@@ -24,7 +25,7 @@ encoder = joblib.load('encoder_tipo.pkl')
 # --- SIDEBAR: Entradas de Sensores ---
 st.sidebar.header("📥 Telemetría en Tiempo Real")
 
-tipo = st.sidebar.selectbox("Tipo de Producto", ['L', 'M', 'H'], help="L: Low (Tolerancias bajas), M: Medium, H: High")
+tipo = st.sidebar.selectbox("Tipo de Producto", ['L', 'M', 'H'], help="L: Low, M: Medium, H: High")
 air_t = st.sidebar.number_input("Temp. Ambiente [K]", value=300.0, step=0.1)
 proc_t = st.sidebar.number_input("Temp. Proceso [K]", value=310.0, step=0.1)
 rpm = st.sidebar.number_input("Velocidad [RPM]", value=1500, step=10)
@@ -35,14 +36,25 @@ wear = st.sidebar.number_input("Desgaste Herramienta [min]", value=0, step=1)
 temp_diff = proc_t - air_t
 mech_effort = torque * wear
 
-# Preparar datos
-input_df = pd.DataFrame([[tipo, air_t, proc_t, rpm, torque, wear, temp_diff, mech_effort]],
-                        columns=['Type', 'Air_temperature', 'Process_temperature', 'Rotational_speed', 'Torque', 'Tool_wear', 'Temp_Diff', 'Mechanical_Effort'])
+# 3. PREPARAR DATOS (Orden exacto que espera el modelo)
+# Definimos las columnas numéricas que el SCALER reconoce (7 en total)
+cols_escalables = ['Air_temperature', 'Process_temperature', 'Rotational_speed',
+                   'Torque', 'Tool_wear', 'Temp_Diff', 'Mechanical_Effort']
 
-# Transformar
+# Creamos el DataFrame con las 8 columnas totales
+input_df = pd.DataFrame([[tipo, air_t, proc_t, rpm, torque, wear, temp_diff, mech_effort]],
+                        columns=['Type', 'Air_temperature', 'Process_temperature',
+                                 'Rotational_speed', 'Torque', 'Tool_wear',
+                                 'Temp_Diff', 'Mechanical_Effort'])
+
+# --- TRANSFORMACIÓN ---
+# A. Codificar 'Type' (L, M, H -> 0, 1, 2)
 input_df['Type'] = encoder.transform(input_df[['Type']])
-cols = ['Air_temperature', 'Process_temperature', 'Rotational_speed', 'Torque', 'Tool_wear', 'Temp_Diff', 'Mechanical_Effort']
-input_df[cols] = scaler.transform(input_df[cols])
+
+# B. Escalar SOLO las 7 columnas numéricas
+# Esto asegura que 'Type' permanezca como 0, 1 o 2, y el resto baje al rango [-3, 3]
+input_df[cols_escalables] = scaler.transform(input_df[cols_escalables])
+
 
 # --- PREDICCIÓN Y UI ---
 st.divider()
@@ -50,9 +62,11 @@ col1, col2 = st.columns([1, 2])
 
 with col1:
     if st.button('🚀 Diagnosticar Máquina', use_container_width=True):
+        # Predicción final
         pred = model.predict(input_df)[0]
         probs = model.predict_proba(input_df)[0]
 
+        # IMPORTANTE: Verifica que este orden coincida con model.classes_
         labels = ['Normal', 'TWF (Desgaste)', 'HDF (Térmico)', 'PWF (Potencia)', 'OSF (Sobreesfuerzo)']
 
         if pred == 0:
@@ -62,16 +76,19 @@ with col1:
             st.error(f"### ALERTA: {labels[pred]}")
 
         # Gráfico de barras de probabilidad
-        st.write("#### Probabilidades:")
+        st.write("#### Probabilidades por categoría:")
         prob_data = pd.DataFrame({'Causa': labels, 'Confianza': probs})
         st.bar_chart(prob_data.set_index('Causa'))
+
+        # OPCIONAL: Descomenta esto para ver los datos finales que recibe el modelo si falla
+        # st.write("Datos procesados enviados al modelo:", input_df)
 
 with col2:
     st.info("### 🔍 Análisis de Ingeniería")
     st.write(f"**Gradiente Térmico:** {temp_diff:.2f} K")
     st.write(f"**Esfuerzo Mecánico:** {mech_effort:.2f} Nm·min")
 
-    # Lógica de advertencia de ingeniero
+    # Lógica de advertencia física (independiente del modelo AI)
     if temp_diff < 8.5:
         st.warning("⚠️ Gradiente térmico bajo. Riesgo de fallo por disipación (HDF).")
     if wear > 200:

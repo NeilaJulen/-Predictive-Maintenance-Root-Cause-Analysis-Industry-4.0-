@@ -3,7 +3,7 @@ Industrial Predictive Maintenance (AI4I 2020) merging Mechanical Eng. & Data Sci
 
 ### *Bridging Mechanical Engineering & Data Science for Industry 4.0*
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](TU_LINK_DE_STREAMLIT_AQUI)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://industrial-health-monitor-julenneilagarcia.streamlit.app/)
 
 Este proyecto no es solo un modelo de Machine Learning; es una **solución de ingeniería** diseñada para transformar la telemetría cruda de sensores en decisiones de mantenimiento que ahorran miles de euros. Como Ingeniero Mecánico y Científico de Datos, el enfoque aquí es la **explicabilidad física** y la **rentabilidad operativa**.
 
@@ -64,7 +64,7 @@ Para que el modelo sea accionable, se desarrolló una aplicación web interactiv
 * **Tecnologías:** Streamlit, XGBoost, Joblib, Scikit-Learn.
 * **UI/UX:** Semáforo de estado de salud y desglose de causas raíz.
 
-*(Inserta aquí un GIF o captura de tu Dashboard funcionando)*
+*<img width="1898" height="826" alt="GIF_Dashboard_Ind_Health_Monitor" src="https://github.com/user-attachments/assets/4ee76021-1d49-463c-b5bf-a83ba860fa2c" />*
 
 ---
 
@@ -74,4 +74,9 @@ Este proyecto demuestra que la **Industria 4.0** no trata solo de importar libre
 **Próximos pasos:** Implementar análisis de vibraciones mediante Series Temporales (LSTMs) para capturar la firma acústica del desgaste de herramienta (TWF) que los sensores de baja frecuencia omiten.
 
 ---
-**Ing. Julen Neila Garcia** *Mecánico y Científico de Datos de formación y por pasión.*
+
+### 👤 Sobre el Autor
+
+**Julen Neila Garcia** *Ing. Mecánico y Científico de Datos de formación*; y apasionado de resolver desafíos complejos en el sector industrial mediante Inteligencia Artificial. Especializado en el diseño de sistemas de mantenimiento predictivo y optimización de procesos, mediante soluciones de ML y DL, que impulsan la competitividad en entornos de fabricación inteligente.. 
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julen-neila-garcia-a42304268/)

@@ -1,3 +1,8 @@
+### Licencia del Proyecto
+Este proyecto está bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)]
+
 # 🏭 Industrial Predictive Maintenance & Root Cause Analysis
 Industrial Predictive Maintenance (AI4I 2020) merging Mechanical Eng. & Data Science. XGBoost model optimized for ROI (€7.8k savings). Features physics-based engineering (Mechanical Effort), multiclass root cause analysis (HDF, OSF, PWF, TWF), and Streamlit deployment. Focused on business impact, reliability, and operational cost reduction.
 
@@ -32,7 +37,16 @@ El conocimiento del dominio es el "Superpoder" de este modelo. En lugar de usar 
 
 ---
 
-## 🤖 3. Arquitectura del Modelo y Diagnóstico
+## 📊 3. Análisis Exploratorio (EDA)
+Para entender el comportamiento de la maquinaria, realizamos un análisis profundo de las variables:
+
+![Mapa de Correlación](img/eda_correlation.png)
+*Figura 1: Relación entre variables de sensores y tipos de fallo.*
+
+![Análisis Físico](img/eda_physics_analysis.png)
+*Figura 2: Identificación de zonas críticas de operación.*
+
+## 🤖 4. Arquitectura del Modelo y Diagnóstico
 
 Implementamos un pipeline de clasificación multiclase capaz de identificar la **causa raíz** del fallo:
 
@@ -47,7 +61,7 @@ Durante el desarrollo, aplicamos **SMOTE** para balancear las clases. Aunque el 
 
 ---
 
-## 📊 4. Comparativa de Resultados
+## 📊 5. Comparativa de Resultados
 
 | Modelo | Recall (Detección de Fallos) | Precision (Fiabilidad Alerta) | F1-Score |
 | :--- | :---: | :---: | :---: |
@@ -57,7 +71,7 @@ Durante el desarrollo, aplicamos **SMOTE** para balancear las clases. Aunque el 
 
 ---
 
-## 💻 5. Despliegue: Dashboard Interactivo en Streamlit
+## 💻 6. Despliegue: Dashboard Interactivo en Streamlit
 
 Para que el modelo sea accionable, se desarrolló una aplicación web interactiva. Los técnicos pueden ajustar los sliders de telemetría y obtener un **diagnóstico en tiempo real** con la probabilidad de cada tipo de fallo.
 
@@ -75,8 +89,18 @@ Este proyecto demuestra que la **Industria 4.0** no trata solo de importar libre
 
 ---
 
-### 👤 Sobre el Autor
+## 👤 Sobre el Autor
 
 **Julen Neila Garcia** *Ing. Mecánico y Científico de Datos de formación*; y apasionado de resolver desafíos complejos en el sector industrial mediante Inteligencia Artificial. Especializado en el diseño de sistemas de mantenimiento predictivo y optimización de procesos, mediante soluciones de ML y DL, que impulsan la competitividad en entornos de fabricación inteligente.. 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julen-neila-garcia-a42304268/)
+
+## ⚖️ Licencia y Atribución
+
+### Datos Originales
+El dataset utilizado es el **AI4I 2020 Predictive Maintenance Dataset**, disponible en el [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset).
+
+**Cita oficial:**
+> Matzka, S. (2020). AI4I 2020 Predictive Maintenance Dataset. UCI Machine Learning Repository. https://doi.org/10.24432/C5G596.
+
+(https://creativecommons.org/licenses/by-nc-sa/4.0/)
